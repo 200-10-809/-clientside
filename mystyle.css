@@ -1,0 +1,257 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+p{
+    font-family: open sans,sans-serif;
+    color:#000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar-brand {
+    font-weight: 600;
+}
+.nav-item a{
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 15px;
+    transition: all 0.4s;
+    font-family: open sans,sans-serif;
+}
+.nav-item a:hover{
+    color:#fff
+}
+.search{
+    height: 45px;
+    outline: none;
+    border: 2px solid #212529;
+    background-color:#fff;
+    border-radius: 20px 0 0 20px;
+    border-right:none;
+}
+.btn1{
+    height: 45px;
+    outline: none;
+    border:2px solid#212529;
+    background-color:#fff;
+    border-radius: 0 20px 20px 0;
+    transition: all 0.4s;
+}
+.fa-bag-shopping{
+    cursor: pointer;
+    color: #fff;
+    font-size:30px;
+}
+.fa-user{
+    cursor: pointer;
+    color: #fff;
+    font-size:30px;
+}
+.navbar-toggler{
+    font-size: 23px;
+    color: black;
+}
+.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+}
+.main{
+    background:url(../image/p1.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.main h1{
+    font-size: 5rem;
+    color: #fff;
+}
+.main p:nth-child(1){
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 100px;
+    color: white;
+}
+.main p:nth-child(2){
+    font-size: 18px;
+}
+.mbtn1{
+    height: 50px;
+    width: 25%;
+    outline: none;
+    border: none;
+    color: white;
+    background: #212529;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+.mbtn1:hover{
+    background-color: black;
+}
+.line{
+    height: 6px;
+    width: 30%;
+    background: #212529;
+    display: inline-block;
+}
+/* -------------------------------aboutuscss--------------------------- */
+.about{
+    background: url(../image/p1.jpg)no-repeat;
+    background-size: cover;
+    height: 90vh;
+    width: 100%; 
+}
+.about h5{
+    font-size: 3rem;
+    color: #000;
+}
+.about p:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 100px;
+    color: #000;
+}
+.about p:nth-child(2){
+    font-size: 18px;
+    color: #000;
+}
+.about p{
+    color: #000;
+}
+/* WELCOMECSS */
+.welcome h1{
+    background:red;
+    font-weight: bold;
+}
+.welcome .card
+{
+    border-radius: 0;
+    cursor: pointer;
+}
+/* PRODUCTCSS */
+.product h5{
+    font-size: 3rem;
+    color: #000;
+}
+.product .card{
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+.product .card-body{
+    border: 1px rgb(126, 144, 126);
+}
+.head1{
+    font-weight: 400;
+    margin: 0;
+}
+.btnc{
+    height: 50px;
+    width: 50%;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: #212529;
+    border-radius: 50px;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.4s;
+}
+.btnc:hover
+{
+    outline: none;
+    border: 1px solid #000;
+    background-color:transparent;
+    color: #000;
+}
+
+/* NEW Arrivals */
+.newproduct h1{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.newproduct .card{
+    border: none;
+    border-radius: 0;
+}
+/* Contact  */
+.contact{
+    background:url(../image/p2.jpg);
+    background-size: cover;
+    width: 100%;
+}
+.circle{
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    background-color:#fff;
+    color:#000;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 18px;
+}
+.contact input{
+    height: 40px;
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+.contact textarea{
+    height: 100px;
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+.cbtn{
+    border-radius: 50px;
+    border: none;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    color:white;
+    background-color:#212529;
+    transition: all 0.4s;
+    font-weight: lighter;
+}
+.cbtn:hover{
+    background-color: #000;
+}
+/* Footer */
+.footer
+{
+    background: #212529;
+    color: #fff;
+}
+
+.s1
+{
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 9px;
+    margin-left: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+}
+.s1:hover{
+    background-color: #000;
+    border: none;
+}
+.footer p{
+    color: #fff;
+}
