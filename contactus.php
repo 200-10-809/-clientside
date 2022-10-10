@@ -1,28 +1,5 @@
 <?php
-$name='';
-$email='';
-$mobile='';
-$mobile='';
-$added_on='';
 require('top.inc.php');
-if(isset($_POST['submit'])){
-
-
-  $name=($_POST['name']);
-  $email=($_POST['email']);
-  $mobile=($_POST['mobile']);
-  $mobile=($_POST['message']);
-  $added_on=date('Y-m-d h:i:s');
-  $result=mysqli_query($conn,"insert into contact_us(name,email,mobile,comment,added_on) values('$name','$email','$mobile','$comment','$added_on')");
-}
-if(isset($result)){
-
-}
-else{
-      // header('location:contactus.php');
-      // die();
-}
-
 ?>
 <section class="contact py-5">
 <div class="container py-3">
@@ -70,7 +47,7 @@ else{
           <input type="text" id="email" name="email" placeholder="Enter Eamil">
           <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile">
           <textarea   type="text" id="message" name="message" placeholder="Message"></textarea>
-          <button  type="submit"  name="submit"class="cbtn mt-3">SEND NOW</button>
+          <button  type="button" onclick="send_message()"  name="submit" class="cbtn mt-3">SEND NOW</button>
         </div>
 </div>
 </form>
