@@ -73,3 +73,40 @@ function user_register(){
 	}
 }
 
+
+
+
+function login_user(){
+
+	jQuery('.field_error').html('');
+	var email=jQuery("#lemail").val();
+	var password=jQuery("#lpassword").val();
+	var is_error='';
+	if(email==""){
+		jQuery('#lemail_error').html('Please enter email');
+		is_error='yes';
+	}
+	if(password==""){
+		jQuery('#lpassword_error').html('Please enter password');
+		is_error='yes';
+	}
+
+		if(is_error==''){
+		jQuery.ajax({
+			url:'login_submit.php',
+			type:'post',
+			data:'email='+email+'&password='+password,
+			success:function(result){
+				alert(result);
+				if(result=='wrong'){
+					jQuery('.login_msg p').html('Please Enter Valid Login details! ');
+				}
+				if(result=='valid'){
+					window.location.href="index.php";
+				}
+			}	
+		
+		});
+	
+	}
+}
