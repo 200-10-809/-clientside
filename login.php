@@ -15,11 +15,19 @@ require('top.inc.php');
 						<span onclick="Reg()">REGISTER</span>
 					</div>
 					<div>
-					<form  id="LoginForm" class="lfrom"style="padding:0 50px; top:100px;">
-						<input type="text" placeholder="Enter Email">
-						<input type="password" placeholder="Enter Password">
+					<form  id="LoginForm" class="lfrom" method="POST" style="padding:0 50px; top:100px;">
+						<div>
+							<input type="text" name="lemail" id="lemail" placeholder="Enter Email">
+						</div>
+						<div class="field_error" id="lemail_error"></div>
+						<div>
+							<input type="password" name="lpassword" id="lpassword" placeholder="Enter Password">
+						</div>
+						<div class="field_error" id="lpassword_error"></div>
 						<button type="button"  onclick="login_user()"class="btn">Login</button>
+						<div class="form-output login_msg"style="margin-top: 30px;"><p class="form-message field_error" ></p></div>
 					</form>
+					
 					</div>
 				<div>
 					<form id="RegForm" method="POST" class="lfrom" style="padding:0 50px; top:100px;">

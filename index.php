@@ -1,3 +1,14 @@
+<?php 
+require('connection.inc.php');
+
+$cat_res=mysqli_query($conn,"select * from categories where status=1 order by cat_name asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+  $cat_arr[]=$row;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +19,7 @@
     <!--Bootstrap.css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- StyleSheet -->
-    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/mycss.css">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="css/all.css">
 </head>
@@ -24,18 +35,25 @@
       <ul class="navbar-nav m-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="#">Home</a>
+          <?php
+          foreach($cat_arr as $list){
+            ?>
+            <li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['cat_name'] ?></a></li>
+            <?php
+          }
+          ?>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          </a> -->
+          <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action </a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link " href="contactus.php">ContactUs</a>
         </li>
@@ -47,7 +65,13 @@
         <input class="form-control mx-2 search" type="search" placeholder="Search" aria-label="Search">
         <button class="btn1 me-2 px-2" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         <a class="nav-link " href="#"><span><i class="fa-solid fa-bag-shopping"></i></span></a>
-        <a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>
+        <?php
+          if(isset($_SESSION['USER_LOGIN'])){
+            echo '<a class="nav-link " href="logout.php"><span><i class="fa-solid fa-sign-out"></i></span></a>';
+          }else{
+            echo '<a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>';
+          }
+          ?>
       </form>
     </div>
   </div>
@@ -62,21 +86,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./image/p1.jpg" class="d-block w-100" alt="...">
+      <img src="./image/ca.jpg" class="d-block w-100" alt="..." style="height:450px">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./image/p2.jpg" class="d-block w-100" alt="...">
+      <img src="./image/bg4.jpg" class="d-block w-100" alt="..." style="height:450px">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./image/p3.jpg" class="d-block w-100" alt="...">
+      <img src="./image/carasole3.jpg" class="d-block w-100" alt="..."style="height:450px ">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -170,7 +194,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/cricket5.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -180,7 +204,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/cricket6.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -190,7 +214,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/cricket7.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -202,7 +226,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/cricket8.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -212,7 +236,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/cricket9.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -222,7 +246,7 @@
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
-            <img src="./image/p1.jpg" class="img-fluid pb-3" alt="">
+            <img src="./image/tennis1.jpg" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -256,67 +280,6 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
-              <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-2 py-2">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
-              <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
-              <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-2 py-2">
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
-              <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-        <div class="card">
-          <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
-              <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>    
  </div>
 </div>

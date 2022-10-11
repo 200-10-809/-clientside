@@ -68,7 +68,15 @@ while($row=mysqli_fetch_assoc($cat_res)){
         <input class="form-control mx-2 search" type="search" placeholder="Search" aria-label="Search">
         <button class="btn1 me-2 px-2" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
         <a class="nav-link " href="#"><span><i class="fa-solid fa-bag-shopping"></i></span></a>
-        <a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>
+        <div>
+          <?php
+          if(isset($_SESSION['USER_LOGIN'])){
+            echo '<a href="logout.php"><span><i class="fa-solid fa-sign-out"></i></span></a>';
+          }else{
+            echo '<a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>';
+          }
+          ?>
+        </div>
       </form>
     </div>
   </div>
