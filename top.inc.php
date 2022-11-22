@@ -20,7 +20,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
     <!--Bootstrap.css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- StyleSheet -->
-    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/mycss.css">
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="css/all.css">
@@ -41,7 +41,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
           <?php
           foreach($cat_arr as $list){
             ?>
-            <li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['cat_name'] ?></a></li>
+            <li class="nav-item"><a class="nav-link" href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['cat_name'] ?></a></li>
             <?php
           }
           ?>
@@ -71,7 +71,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
         <div>
           <?php
           if(isset($_SESSION['USER_LOGIN'])){
-            echo '<a href="logout.php"><span><i class="fa-solid fa-sign-out"></i></span></a>';
+            echo ' <a  class="nav-link" href="logout.php"><span><i class="fa-solid fa-sign-out" style="color:#fff; font-size:30px;"></i></span></a>';
           }else{
             echo '<a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>';
           }

@@ -22,6 +22,48 @@ while($row=mysqli_fetch_assoc($cat_res)){
     <link rel="stylesheet" href="css/mycss.css">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="css/all.css">
+    <style>
+      .img{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      #img{
+        height:250px;
+      }
+      #container{
+        display:flex;
+        margin:auto;
+        justify-content:center;
+        padding-bottom:-54rem;
+        margin-bottom:2rem;
+
+      }
+      #row{
+        overflow: hidden;
+        margin-top:-9rem;
+        justify-content:center;
+      }
+      #card{
+        width: 280px;;
+        border-radius:10px;
+      }
+      #card2{
+        width: 280px;
+        border-radius:10px;
+        transition:ease 0.3s;
+      }
+      #card:hover{
+        transform:scale(1.1);
+        box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+        border:1px solid #ddd;
+      }
+      #card2:hover{
+        transform:scale(1.1);
+        box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+        border:1px solid #ddd;
+      }
+    </style>
 </head>
 <body>
 <div>
@@ -38,7 +80,9 @@ while($row=mysqli_fetch_assoc($cat_res)){
           <?php
           foreach($cat_arr as $list){
             ?>
-            <li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['cat_name'] ?></a></li>
+            <li class="nav-item">
+              <a  class="nav-link" href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['cat_name'] ?></a>
+            </li>
             <?php
           }
           ?>
@@ -67,7 +111,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
         <a class="nav-link " href="#"><span><i class="fa-solid fa-bag-shopping"></i></span></a>
         <?php
           if(isset($_SESSION['USER_LOGIN'])){
-            echo '<a class="nav-link " href="logout.php"><span><i class="fa-solid fa-sign-out"></i></span></a>';
+            echo '<a class="nav-link " href="logout.php"><span><i class="fa-solid fa-sign-out"style="color:#fff; font-size:30px;"></i></span></a>';
           }else{
             echo '<a class="nav-link " href="login.php"><span><i class="fa-solid fa-user"></i></span></a>';
           }
@@ -86,21 +130,21 @@ while($row=mysqli_fetch_assoc($cat_res)){
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./image/ca.jpg" class="d-block w-100" alt="..." style="height:450px">
+      <img src="./image/ca.jpg" class="d-block w-100" alt="..." style="height:350px">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./image/bg4.jpg" class="d-block w-100" alt="..." style="height:450px">
+      <img src="./image/bg4.jpg" class="d-block w-100" alt="..." style="height:350px">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./image/carasole3.jpg" class="d-block w-100" alt="..."style="height:450px ">
+      <img src="./image/carasole3.jpg" class="d-block w-100" alt="..."style="height:350px ">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -131,22 +175,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
         </div>
     </section>
 </div>
-<!-- -------------------------------------Aboutus----------------------------------------- -->
-<div>
-    <section class="about py-5">
-        <div class="container py-5">
-            <div class="row py-5">
-                <div class="col-lg-5 py-5 offset-lg-7 col-md-6 col-sm-12 col-12">
-                    <p class="m-0">Sports Equipments</p>
-                    <h5>ALL Sport is here</h5>
-                    <div class="line my-4"></div>
-                    <p>ALL types of Sports equipment is here to make your Sports more lively and enjoyable</p>
-                    <button class="mbtn1 mt-4">Read More</button>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+
 <!-- ----------------------------------------Welcome--------------------------------------- -->
 <!-- <secction class="welcome text-center pb-0">
   <div class="container py-5">
@@ -184,17 +213,17 @@ while($row=mysqli_fetch_assoc($cat_res)){
 
 <!-- --------------------------------Products-------------------------------- -->
 <section class="product bg-light">
-  <div class="container">
+  <div class="container" >
     <div class="row py-5 text-center">
       <div class="col-lg-6 m-auto">
         <h2>PRODUCTS</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="container" id="row">
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/cricket5.jpg" class="img-fluid pb-3" alt="">
+        <div class="card" id="card">
+          <div class="card-body" id="card2">
+            <img src="./image/cricket5.jpg"  id="img" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -202,19 +231,19 @@ while($row=mysqli_fetch_assoc($cat_res)){
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/cricket6.jpg" class="img-fluid pb-3" alt="">
+        <div class="card" id="card">
+          <div class="card-body" id="card2">
+            <img src="./image/cricket6.jpg" id="img" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/cricket7.jpg" class="img-fluid pb-3" alt="">
+     <div class="col-lg-4">
+        <div class="card" id="card">
+          <div class="card-body"id="card2">
+            <img src="./image/cricket7.jpg"id="img" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -222,11 +251,11 @@ while($row=mysqli_fetch_assoc($cat_res)){
         </div>
       </div>
   </div>
-  <div class="row py-5">
+  <div class="row id="row">
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/cricket8.jpg" class="img-fluid pb-3" alt="">
+        <div class="card" id="card">
+          <div class="card-body"id="card2">
+            <img src="./image/cricket8.jpg" id="img"class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -234,9 +263,9 @@ while($row=mysqli_fetch_assoc($cat_res)){
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/cricket9.jpg" class="img-fluid pb-3" alt="">
+        <div class="card" id="card">
+          <div class="card-body"id="card2">
+            <img src="./image/cricket9.jpg"id="img" class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -244,9 +273,9 @@ while($row=mysqli_fetch_assoc($cat_res)){
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="./image/tennis1.jpg" class="img-fluid pb-3" alt="">
+        <div class="card" id="card">
+          <div class="card-body"id="card2">
+            <img src="./image/tennis1.jpg" id="img"class="img-fluid pb-3" alt="">
             <h4 class="head1">Shoes</h4>
             <h6>price</h6>
             <button class="btnc my-4">ADD TO CART</button>            
@@ -261,31 +290,102 @@ while($row=mysqli_fetch_assoc($cat_res)){
   </div>
 </section>
 <!-- -----------------------------new arrivals-------------------------------- -->
+<?php
+function get_product($conn,$limit=''){
+  $sql="select * from products where status=1 ";
+  if($limit!=''){
+    $sql.=" limit $limit";
+  }
+  $res=mysqli_query($conn,$sql);
+  $data=array();
+  while($row=mysqli_fetch_assoc($res)){
+    $data[]=$row;
+  }
+  return $data;
+}
+
+?>
+
 <section class="newproduct bg-light py-5">
 <div class="container py-5">
     <div class="row">
-      <div class="col-lg-6">
-        <h1 class="py-5"> NEW PRODUCTS</h1>
+      <div class="col-lg-6 m-auto">
+        <h1 class="py-5" style="text-align:center"> NEW PRODUCTS</h1>
       </div>
     </div>
-    <div class="row g-2 py-2">
-      <div class="col-lg-6">
+    <?php
+      $get_product=get_product($conn,'');
+      foreach($get_product as $list){
+    ?>
+    
+    <div class="row py-3">
+      <div class=" col-lg-6  m-auto">
         <div class="card">
           <div class="row">
-            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
+            <div class="col-lg-6 "><a href="product.php?id=<?php echo $list['id']?>"><img src="./image/cricket7.jpg" class="image-fluid" alt=""></a></div>
               <div class="col-lg-6 p-5">
-                <h4 class="head1">FOOTBALL</h4>
-                <h6>Price</h6>
+                <h4 class="head1"><?php echo $list['name']?></h4>
+                <h6>&#8377;  <?php echo $list['mrp']?></h6>
+                <h6><?php echo $list['description']?></h6>
               </div>
             </div>
           </div>
         </div>
-  </div>    
+      <div>
+    </div> 
+        <?php }?>
+        
+        
+        <!-- <div class=" col m-auto">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-6 "><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
+              <div class="col-lg-6 p-5">
+                <h4 class="head1"><?php echo $list['name']?></h4>
+                <h6>&#8377;  <?php echo $list['mrp']?></h6>
+                <h6><?php echo $list['description']?></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-lg-6">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-6"><img src="./image/p2.jpg" class="image-fluid" alt=""></div>
+              <div class="col-lg-6 p-5">
+                <h4 class="head1"><?php echo $list['name']?></h4>
+                <h6><?php echo $list['mrp']?></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+   
  </div>
 </div>
 </div>
-</div>    
+</div>   
+
 </section>
+<!-- -------------------------------------Aboutus----------------------------------------- -->
+<div>
+    <section class="about py-5">
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-5 py-5 offset-lg-7 col-md-6 col-sm-12 col-12">
+                    <p class="m-0">Sports Equipments</p>
+                    <h5>ALL Sport is here</h5>
+                    <div class="line my-4"></div>
+                    <p>ALL types of Sports equipment is here to make your Sports more lively and enjoyable</p>
+                    <button class="mbtn1 mt-4">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <!------------------------------- Contact------------------------------ -->
 <section class="contact py-5">
 <div class="container py-3">
